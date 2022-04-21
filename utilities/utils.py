@@ -1,5 +1,7 @@
 import json
 
+FILENAME = r"./data/candidates.json"
+
 
 def load_data(filename: str) -> list[dict]:
     """
