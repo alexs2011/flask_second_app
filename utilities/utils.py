@@ -31,3 +31,15 @@ def get_candidates_by_skill(candidates: list[dict], skill: str) -> list[dict]:
         if skill.lower() in skills:
             res.append(candidate)
     return res
+
+
+def get_candidates_by_name(candidates: list[dict], name: str) -> list[dict]:
+    """
+    Поиск всех кандидатов с именем name.
+    """
+    res = []
+    for candidate in candidates:
+        name_lst = candidate.get("name").lower().split()
+        if name.lower() in name_lst:
+            res.append(candidate)
+    return res

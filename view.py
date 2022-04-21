@@ -35,3 +35,13 @@ def search_by_skill(skill: str) -> str:
     candidates = utils.load_data(utils.FILENAME)
     filtered_candidates = utils.get_candidates_by_skill(candidates, skill)
     return render_template("search_by_skill.html", candidates=filtered_candidates, skill=skill)
+
+
+@app.route('/search/<name>')
+def search_by_name(name: str) -> str:
+    """
+    Страница с информацией о кандидатах с именем name.
+    """
+    candidates = utils.load_data(utils.FILENAME)
+    filtered_candidates = utils.get_candidates_by_name(candidates, name)
+    return render_template("search_by_name.html", candidates=filtered_candidates, name=name)
