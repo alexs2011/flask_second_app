@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content -%}
+    <div class="search_by_skill_content">
+        {% for candidate in candidates -%}
+        <div class="candidates_lst">
+            <p class="candidate_number">№ {{ loop.index }}</p>
+                <p class="candidate_info">
+                    <a href="{{ url_for('candidate_profile', uid=candidate.id) }}">{{ candidate.name }}</a>
+                </p>
+        </div>
+        {% endfor -%}
+    </div>
+{% endblock -%}
