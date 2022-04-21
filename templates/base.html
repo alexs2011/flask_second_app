@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+
+        {% endblock %} | Flask app
+    </title>
+</head>
+<body>
+    <div class="title">
+        <div style="width: 50%; margin: 30px">
+            <h2>
+                {% block content_title %}
+
+                {% endblock %}
+            </h2>
+        </div>
+    </div>
+    <div class="content">
+        {% block content %}
+
+        {% endblock %}
+    </div>
+</body>
+</html>
