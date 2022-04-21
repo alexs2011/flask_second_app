@@ -25,3 +25,13 @@ def candidate_profile(uid: int) -> str:
         print(e)
         abort(404)
     return render_template("candidate.html", candidate=candidate)
+
+
+@app.route('/skill/<skill>')
+def search_by_skill(skill: str) -> str:
+    """
+    Страница с информацией о тех кандидатах, у которых есть навык skill.
+    """
+    candidates = utils.load_data(utils.FILENAME)
+    filtered_candidates = utils.get_candidates_by_skill(candidates, skill)
+    return render_template("search_by_skill.html", candidates=filtered_candidates, skill=skill)

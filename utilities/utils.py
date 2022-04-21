@@ -19,3 +19,15 @@ def get_candidate_by_uid(candidates: list[dict], uid: int) -> dict:
         if candidate.get("id") == uid:
             return candidate
     raise ValueError(f"ValueError: Кандидат с uid={uid} не найден.")
+
+
+def get_candidates_by_skill(candidates: list[dict], skill: str) -> list[dict]:
+    """
+    Поиск всех кандидатов, у которых есть навык skill.
+    """
+    res = []
+    for candidate in candidates:
+        skills = candidate.get("skills").lower().split(", ")
+        if skill.lower() in skills:
+            res.append(candidate)
+    return res
