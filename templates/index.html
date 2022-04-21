@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
 
-</body>
-</html>
+{% block title %} List of candidates {% endblock -%}
+
+{% block content_title %} Все кандидаты {% endblock -%}
+
+{% block content -%}
+    <div class="index_content">
+        {% for candidate in candidates -%}
+            <div class="candidates_lst">
+                <p class="candidate_number">№ {{ loop.index }}</p>
+                <p class="candidate_info">
+                    <a href="{{ url_for('candidate_profile', uid=candidate.id) }}">{{ candidate.name }}</a>
+                </p>
+            </div>
+        {% endfor -%}
+    </div>
+{% endblock -%}

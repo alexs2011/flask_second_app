@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %} Candidate Profile {% endblock -%}
+
+{% block content_title %} {{ candidate.name }} {% endblock -%}
+
+{% block content -%}
+    <div class="candidate_content">
+        <div class="candidate">
+            <p>Позиция: {{ candidate.position }}</p>
+            <div class="candidate_img">
+                <img src="{{ candidate.picture }}">
+            </div>
+            <p>Навыки: {{ candidate.skills }}</p>
+        </div>
+    </div>
+{% endblock -%}
